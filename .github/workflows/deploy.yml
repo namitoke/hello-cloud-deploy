@@ -12,11 +12,11 @@ jobs:
     - name: Checkout do código
       uses: actions/checkout@v3
 
-    - name: Instalar AWS CLI
+    - name: Instalar ou atualizar AWS CLI
       run: |
         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-        unzip awscliv2.zip
-        sudo ./aws/install
+        unzip -q awscliv2.zip
+        sudo ./aws/install --update
 
     - name: Deploy para S3
       env:
